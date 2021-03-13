@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/bluesmoss/am-testcafe/issues"
   },
-  "homepage": "https://github.com/bluesmoss/am-testcafe#readme"
+  "homepage": "https://github.com/bluesmoss/am-testcafe#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
