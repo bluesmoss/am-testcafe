@@ -1,0 +1,24 @@
+{
+  "name": "am-testcafe",
+  "version": "1.0.0",
+  "description": "Testcafe introduction",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluesmoss/am-testcafe.git"
+  },
+  "keywords": [
+    "testcafe",
+    "automation",
+    "js"
+  ],
+  "author": "@bluesmoss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bluesmoss/am-testcafe/issues"
+  },
+  "homepage": "https://github.com/bluesmoss/am-testcafe#readme"
+}
