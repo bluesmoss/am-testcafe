@@ -1,7 +1,7 @@
 import WelcomePage from '../pages/WelcomePage'
 import LoginPage from '../pages/LoginPage'
 import MyNotesPage from '../pages/MyNotesPage'
-
+import { CREDENTIALS }  from '../data/Constants'
 
 fixture('Login feature testing')
     .page `http://testapp.galenframework.com/`
@@ -9,8 +9,8 @@ fixture('Login feature testing')
 test('Users can login using valid credentials', async t => {
     await t
         .click(WelcomePage.loginButton)
-        .typeText(LoginPage.userNameField, 'testuser@example.com')
-        .typeText(LoginPage.passwordField, 'test123')
+        .typeText(LoginPage.userNameField, CREDENTIALS.VALID_USER.USERNAME)
+        .typeText(LoginPage.passwordField, CREDENTIALS.VALID_USER.PASSWORD)
         .click(LoginPage.loginButton)
 
     await t.expect(MyNotesPage.pageTitle.exists).ok()
@@ -19,8 +19,8 @@ test('Users can login using valid credentials', async t => {
 test('Users can login using invalid credentials', async t => {
     await t
         .click(WelcomePage.loginButton)
-        .typeText(LoginPage.userNameField, 'testuser@example.com')
-        .typeText(LoginPage.passwordField, 'test1234')
+        .typeText(LoginPage.userNameField, CREDENTIALS.INVALID_USER.USERNAME)
+        .typeText(LoginPage.passwordField, CREDENTIALS.INVALID_USER.PASSWORD)
         .click(LoginPage.loginButton)
 
     await t.expect(LoginPage.errorMessage.exists).ok()
