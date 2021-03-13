@@ -5,10 +5,13 @@ import { CREDENTIALS }  from '../data/Constants'
 
 fixture('Login feature testing')
     .page `http://testapp.galenframework.com/`
+    .beforeEach(async t  => {
+        await t
+        .click(WelcomePage.loginButton)
+    })
 
 test.only('Users can login using valid credentials', async t => {
     await t
-        .click(WelcomePage.loginButton)
         .typeText(LoginPage.userNameField, CREDENTIALS.VALID_USER.USERNAME)
         .typeText(LoginPage.passwordField, CREDENTIALS.VALID_USER.PASSWORD)
         .click(LoginPage.loginButton)
@@ -16,9 +19,8 @@ test.only('Users can login using valid credentials', async t => {
     await t.expect(MyNotesPage.pageTitle.exists).ok()
 })
 
-test.skip('Users can login using invalid credentials', async t => {
+test.skip('Users cannot login using invalid credentials', async t => {
     await t
-        .click(WelcomePage.loginButton)
         .typeText(LoginPage.userNameField, CREDENTIALS.INVALID_USER.USERNAME)
         .typeText(LoginPage.passwordField, CREDENTIALS.INVALID_USER.PASSWORD)
         .click(LoginPage.loginButton)
