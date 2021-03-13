@@ -6,7 +6,7 @@ import { CREDENTIALS }  from '../data/Constants'
 fixture('Login feature testing')
     .page `http://testapp.galenframework.com/`
 
-test('Users can login using valid credentials', async t => {
+test.only('Users can login using valid credentials', async t => {
     await t
         .click(WelcomePage.loginButton)
         .typeText(LoginPage.userNameField, CREDENTIALS.VALID_USER.USERNAME)
@@ -16,7 +16,7 @@ test('Users can login using valid credentials', async t => {
     await t.expect(MyNotesPage.pageTitle.exists).ok()
 })
 
-test('Users can login using invalid credentials', async t => {
+test.skip('Users can login using invalid credentials', async t => {
     await t
         .click(WelcomePage.loginButton)
         .typeText(LoginPage.userNameField, CREDENTIALS.INVALID_USER.USERNAME)
