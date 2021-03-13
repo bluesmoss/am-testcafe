@@ -11,11 +11,7 @@ fixture('Login feature testing')
     })
 
 test.only('Users can login using valid credentials', async t => {
-    await t
-        .typeText(LoginPage.userNameField, CREDENTIALS.VALID_USER.USERNAME)
-        .typeText(LoginPage.passwordField, CREDENTIALS.VALID_USER.PASSWORD)
-        .click(LoginPage.loginButton)
-
+    await LoginPage.submitLoginForm(CREDENTIALS.VALID_USER.USERNAME, CREDENTIALS.VALID_USER.PASSWORD);
     await t.expect(MyNotesPage.pageTitle.exists).ok()
 })
 
